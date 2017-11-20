@@ -57,4 +57,4 @@
                                                 对于被static和final修饰过的实例常量，实例本身不能改变，
                                                 但对于一些容器类型（比如，ArrayList、HashMap）的实例变量，存放的是引用，不可以改变该引用，但可以修改 引用所指向的容器中 存放的东西
                                           
-5.
+5.弹出提示框：                                  JOptionPane.showMessageDialog(parentFrame, string text);
