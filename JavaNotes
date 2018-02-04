@@ -70,3 +70,5 @@
                                                 BorderLayout将界面分成五大区域，分别用BorderLayout类的静态常量指定，上、下、左、右、中
                                                 BoxLayout可以将组件由上至下或由左至右，即X或Y方向，叠入容器中，
 
+8.
+.
