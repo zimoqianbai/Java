@@ -70,5 +70,6 @@
                                                 BorderLayout将界面分成五大区域，分别用BorderLayout类的静态常量指定，上、下、左、右、中
                                                 BoxLayout可以将组件由上至下或由左至右，即X或Y方向，叠入容器中，
 
-8.
-.
+8.String和byte[]的转换:                          无论是byte[]转String:String tempStr=new String(byteArray);
+                                                还是String转byte[]：byte[] byteArray=tempStr.getBytes().都需要查询操作系统默认字符集，中文即GBK进行
+                                                进行一一转换。正数与ASCII转换，负数与GBK转换（两个字节对应一个汉字，不可以是单数个。）  
