@@ -80,3 +80,6 @@
                                                  如：StringBuffer sbr1="abc"; str1="abc"+"efg";只分配一块内存。
                                                  并且StringBuffer类操作字符串更加灵活，封装了很多使用的方法。如StringBuffer.append（）//向缓冲区中追加各种类型的值
                                                                                                           StringBuffer.insert()
+                                                                                                          StringBuffer.replace（）
+                                                                                                          StringBuffer.reverse()
+                                                                                                          StringBuffer.toString()
