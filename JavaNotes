@@ -69,3 +69,4 @@
 7.swing 布局管理管理器(LayOut)                   FlowLayout按照类似作业纸的方式来安排组件。从左到右，直至没有多余的空间，然后转到下一行，再从左至右。
                                                 BorderLayout将界面分成五大区域，分别用BorderLayout类的静态常量指定，上、下、左、右、中
                                                 BoxLayout可以将组件由上至下或由左至右，即X或Y方向，叠入容器中，
+
