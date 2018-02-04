@@ -83,3 +83,7 @@
                                                                                                           StringBuffer.replace（）
                                                                                                           StringBuffer.reverse()
                                                                                                           StringBuffer.toString()
+                                                                                                          
+9.StringBuffer&StringBuilder                    StringBuilder与StringBuffer使用方法基本相同，他们的区别在于StringBuffer属于线程安全的，因此速度较慢。
+                                                StringBuilder属于线程不安全的，有可能不同步，因此运行的速度较快。
+                                                所以，二者相较，大多数时间我们应该使用StringBuilder。           
