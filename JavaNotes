@@ -73,3 +73,10 @@
 8.String和byte[]的转换:                          无论是byte[]转String:String tempStr=new String(byteArray);
                                                 还是String转byte[]：byte[] byteArray=tempStr.getBytes().都需要查询操作系统默认字符集，中文即GBK进行
                                                 进行一一转换。正数与ASCII转换，负数与GBK转换（两个字节对应一个汉字，不可以是单数个。）  
+                                                
+9.关于String和StringBuffer                       由于String是一个字符串常量，基本上出现一次双引号，就要分配一次内存给字符串常量。如：String str1="abc";str1="abc"+"efg";
+                                                 上述例子需要JVM分配三块内存("abc","efg"和"abcefg")，而JVM的运行机制又不能立刻回收无用的内存空间，所以就有了StringBuffer类
+                                                 StringBuffer类将实例化一个可变长度的字符数组变量，而不是常量，且分配一块内存，默认的字符长度为16；
+                                                 如：StringBuffer sbr1="abc"; str1="abc"+"efg";只分配一块内存。
+                                                 并且StringBuffer类操作字符串更加灵活，封装了很多使用的方法。如StringBuffer.append（）//向缓冲区中追加各种类型的值
+                                                                                                          StringBuffer.insert()
