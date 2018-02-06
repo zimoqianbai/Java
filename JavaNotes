@@ -94,13 +94,22 @@
                                                iterator对象实质是对指针的移动，因此，如果在某个循环中通过iterator对集合元素进行遍历，iterator对象
                                                会指向集合的最后一个元素，此时指针的位置已经移动到了集合的尾部，不适合再对该iterator对象进行操作。
 
-11.对于集合迭代的循环方式的选择：                一般是这样的：while(iterator.hasNext()){
+11.对于集合迭代的循环方式的选择：                 ① 一般是这样的：
+                                                           while(iterator.hasNext()){
                                                                 Object obj = iterator.next();
                                                                 System.out.println(obj);
                                                            }//但是它的问题是，iterator对象在循环之外的方法中建立的，需要在方法结束后才会被JVM回收，
                                                            因此，使用下面的写法相对节约内存。
-                                              节约内存的for写法：
-                                              for (Iterator<Object> iterator = collection.iterator(); iterator.hasNext();  ) {
+							   
+                                               ②节约内存的for写法：
+                                              			for (Iterator<Object> iterator = collection.iterator(); iterator.hasNext();  ) {
 			                                                  System.out.println(it2.next()); 
-                                              }//这种写法迭代器对象在循环结束就会被回收
+                                              			}//这种写法迭代器对象在循环结束就会被回收
+								
+					       ③上述两种都是使用迭代器的写法，使用迭代器的写法主要用于对集合中的元素进行改变
+					       如果不需要对集合元素进行改变的话，很明显使用foreach更好：
+					       
+					     			for(数据类型  迭代变量  ： 集合名){
+					     				....
+					     			}
                                                            
