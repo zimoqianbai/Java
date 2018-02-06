@@ -87,3 +87,9 @@
 9.StringBuffer&StringBuilder                    StringBuilder与StringBuffer使用方法基本相同，他们的区别在于StringBuffer属于线程安全的，因此速度较慢。
                                                 StringBuilder属于线程不安全的，有可能不同步，因此运行的速度较快。
                                                 所以，二者相较，大多数时间我们应该使用StringBuilder。           
+
+10.关于Collection集合的迭代：                    Collection集合下包含List和Set两类子类，他们又分别有两个子类：List-ArrayList LinkedList
+                                                                                                         Set - HashSet  LinkedHashSet
+                                               他们都可以使用Colletion的迭代方法获得一个迭代器进行迭代： Iterator  iterator=collection.iterator();
+                                               iterator对象实质是对指针的移动，因此，如果在某个循环中通过iterator对集合元素进行遍历，iterator对象
+                                               会指向集合的最后一个元素，此时指针的位置已经移动到了集合的尾部，不适合再对该iterator对象进行操作。
