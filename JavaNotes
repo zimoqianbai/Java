@@ -116,5 +116,15 @@
 12.ConcurrentModificationException		
 (使用迭代器iterator()时引发的并发修改异常)	   在迭代器迭代集合的过程中，不允许修改集合元素,如果一定要修改，需要使用其他方法
 
-13.关于hashcode()和equals()		     jvm将会先判断hashcode是否相同，再去决定是否调用equals（）方法。换句话说，如果两个对象的hashcode
-					        不同，equals（）结果一定不同，但是如果他们的hashcode相同，则会继续调用equals方法，然后再返回true or false
+13.关于hashcode()和equals()		     一般equals()和hashcode()方法会一起重写。根据hashcode协定，相同的对象必须有相同的hashcode.
+
+
+						jvm将会先判断hashcode是否相同，再去决定是否调用equals（）方法。换句话说，如果两个对象的hashcode
+					        不同，equals（）结果一定不同，但是如果他们的hashcode相同，则会继续调用equals方法，根据不同的算法（系统自带的和自己重写的）来
+						返回true or false
+
+14.
+
+						
+
+						
