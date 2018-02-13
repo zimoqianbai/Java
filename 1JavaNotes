@@ -123,8 +123,10 @@
 					        不同，equals（）结果一定不同，但是如果他们的hashcode相同，则会继续调用equals方法，根据不同的算法（系统自带的和自己重写的）来
 						返回true or false
 
-14.
-
+14.编译时异常和运行时异常			       编译时异常会在程序运行之前就由Eclipse提示出，由程序员为代码加上throws抛给上一级进行try...catch处理
+						而运行时异常（RuntimeException）将会在程序运行之后才会发生，不应该使用try...catch解决，而应该
+						throw exception（“xxx出错”）来提醒程序员修改。
+						
 						
 
 						
