@@ -145,7 +145,12 @@
 								    synchronized 方法/类名//直接声明为同步类或者同步方法，同样是以当前类的对象的引用作为同步锁
 								    static synchronized（类名.class）//静态的同步锁
 								    
-18.
+18.一种静态的唯一私有对象的实现代码		   public class Human{
+							private Human(){}
+							public static final Human human=new Human();
+						}//static final才代表无法修改的全局常量
+
+19.
 
 
 						
