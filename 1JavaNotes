@@ -157,7 +157,27 @@
 						如果父类没有不带参数的构造方法，那么子类必须显示调用supper关键子来调用父类带参数的构造方法（正常是隐式调用）
 						
 
+20.DriverManager				DriverManager:管理了一组jdbc操作的类
+						注册驱动我们一般使用Class.forName(),而另一种方法不使用：static void registerDriver(Driver driver) :
+						通过查看 com.mysql.jdbc.Driver的源码 有如下代码
+						 static {
+							try {
+								java.sql.DriverManager.registerDriver(new Driver());//如果使用这种注册驱动的方法
+								//我们已经写过这行代码了
+							} catch (SQLException E) {
+								throw new RuntimeException("Can't register driver!");
+							}
+						}
+						//因此驱动注册了两次.而我们只需要将静态代码块执行一次即可；
+						 如何执行？
+						 类被加载到内存中会执行静态代码块,并且只执行一次.
+						 所以现在只需要将类加载到内存中即可:
+						方式1:
+							★Class.forName("全限定名");//包名+类名   com.mysql.jdbc.Driver
+						方式2:
+							类名.class;
+						方式3:
+							对象.getClass();
 
-						
 
-						
+
