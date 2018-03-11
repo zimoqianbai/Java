@@ -179,5 +179,7 @@
 						方式3:
 							对象.getClass();
 
-
+21.在访问服务器的时候可以不加端口号：		  浏览器默认是80端口，于是可以将tomcat的默认端口设置为80，这样以后访问servlet服务器的时候就可以不用
+						 加端口号，最简便可以这样：localhost/项目名/
+						 因为服务器可以找到tomcat的web.xml中的默认urlpattern：index/htm|index/heml|index....
 
