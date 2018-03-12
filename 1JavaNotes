@@ -184,5 +184,7 @@
 						 因为服务器可以找到tomcat的web.xml中的默认urlpattern：index/htm|index/heml|index....
 
 22.通过类加载器获得文件的路径：		     类名.class.getClassLoader().getResource("文件名").getPath()。无论是java项目还是web项目都可以
-						 但是文件要放在class的路径下(src路径下)
-		
+						 但是文件要放在src路径下。如果是web项目，文件放在src下，最后会被复制到tomcat/webapps/项目名/WEB-INF/classes/文件
+						 
+23.
+
