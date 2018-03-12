@@ -186,5 +186,8 @@
 22.通过类加载器获得文件的路径：		     类名.class.getClassLoader().getResource("文件名").getPath()。无论是java项目还是web项目都可以
 						 但是文件要放在src路径下。如果是web项目，文件放在src下，最后会被复制到tomcat/webapps/项目名/WEB-INF/classes/文件
 						 
-23.
+23.设置定时刷新：				   一、respooen.setHeader("refresh","3;url=/day10/refresh2.html");
+				 		 二、设置html页面的meta
+						 <meta http-equiv="refresh" content="秒数;url=要跳转的路径">
 
+24.
