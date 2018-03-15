@@ -197,3 +197,19 @@
 						 new String(参数.getBytes("iso-8859-1"),"utf-8");
 						 针对于post请求来说:只需要将请求流的编码设置成utf-8即可
 						 request.setCharacterEncoding("utf-8");
+25.关于cookie.setPath()			       path表示cookie所在的目录。”/”表示根目录，所有页面都能访问根目录下面的cookie。
+						 如果cookie的path为test，那么只test目录下或者是test下的子目录的页面和代码才获取到这个cookie。 
+						 查看了一下添加cookie的源代码发现，当cookie的path为null的时候，会自动设置path的值。
+						 当cookie的path设置了值不为null的时候，以设置的值为准。
+						 当cookie的path为null时候，获取请求的URI的path值 
+						 当URI的path值是以“/”结尾的时候，直接设置为cookie的path值
+						 当URI的path值不是以“/”结尾的时候，查看path里面是否有“/” 
+						 如果有“/”的话，直接截取到最后一个“/”，然后设置为cookie的path值。
+						 因此如果要想准确的设置值，应该这样cookie.setPath(request.getContextPath()+"/");
+						 如果没有“/”的话，将cookie的path设置为”/”。
+						 
+26.关于获得request的各种路径			  以访问的jsp为：http://localhost:8080/test/包名/index.jsp，工程名为/test为例：
+						 request.getContextPath()，得到工程名：/test；
+						 request.getServletPath()，返回当前页面所在目录下全名称：/包名/index.jsp；
+						 request.getRequestURL()，返回IE地址栏地址：http://localhost:8080/test/包名/index.jsp；
+						 request.getRequestURI() ，返回包含工程名的当前页面全路径：/test/包名/index.jsp。
