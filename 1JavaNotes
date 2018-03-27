@@ -213,3 +213,7 @@
 						 request.getServletPath()，返回当前页面所在目录下全名称：/包名/index.jsp；
 						 request.getRequestURL()，返回IE地址栏地址：http://localhost:8080/test/包名/index.jsp；
 						 request.getRequestURI() ，返回包含工程名的当前页面全路径：/test/包名/index.jsp。
+27.在queryRunner中使用 ScalarHandler	      qr.query()返回object类型 ，先转成 ScalarHandler的Long类型 然后 在转为 int类型
+						 return ((Long) qr.query(sql, new ScalarHandler())).intValue();		
+						 
+						 
