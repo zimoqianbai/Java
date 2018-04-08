@@ -218,3 +218,46 @@
 
 28.String.split("|")				 直接使用"|"会被当作正则处理，分割成字符数组，所以尽量不要使用特殊字符。如果非要使用，可以："\\|"
 						 
+29.关于string.isEmpty()和string==null	     一个字符串str==null，说明str尚未分配内存空间，或者说没有指向一个字符串常量，即空指针
+						str.isEmpty()判断的是字符串value.lenth是否等于零。
+						结论：string.isEmpty()为true的条件：值为空串时 string=""
+										    值为new string()时	
+						package test0408;
+
+						public class Test {
+
+							@org.junit.Test
+							public void t1() {
+								String a=new String();
+								String b ="";
+								String c=null;
+
+								if(a.isEmpty()) {
+									System.out.println("a=new String();a.isEmpty()为true");
+								}
+								if(a==null) {
+									System.out.println("a=new String();a=null为true");
+								}
+
+								if(b.isEmpty()) {
+									System.out.println("b=\"\";b.isEmpty()为true");
+								}
+
+								if(b==null) {
+									System.out.println("b=\\\"\\\";b=null为true");
+								}
+
+								if(c.isEmpty()) {
+									System.out.println("c=null;c.isEmpty()为true");
+								}
+
+								if(c==null) {
+									System.out.println("c=null;c=null为true");
+								}
+
+							}
+						}//输出：a=new String();a.isEmpty()为true
+							 b=""; b.isEmpty()为true"
+
+30.
+
