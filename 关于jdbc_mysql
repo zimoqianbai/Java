@@ -1,0 +1,7 @@
+1.`表名`  `字段名`
+  当表名和关键字冲突时，使用``进行区分。我花了两个小时调试发现自己的order表和关键字冲突，插入时候要insert into `order`
+  `该符号是英文模式下左上角数字键1的左边。
+
+2.preparedStatement以及queryRunner在编写sql的时候使用的？占位符
+  底层使用的是preparedStatement.setObject()方法，方法内部会通过instance of判断这个参数到底是哪个类型的具体对象，从而调用相应类型的set方法。
+  从而极大方便我们，不用再考虑加不加''的问题
