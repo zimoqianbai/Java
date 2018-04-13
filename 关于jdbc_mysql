@@ -5,3 +5,9 @@
 2.preparedStatement以及queryRunner在编写sql的时候使用的？占位符
   底层使用的是preparedStatement.setObject()方法，方法内部会通过instance of判断这个参数到底是哪个类型的具体对象，从而调用相应类型的set方法。
   从而极大方便我们，不用再考虑加不加''的问题
+
+3.mysql命令方式备份数据库
+
+mysqldump -uroot -p123 test>g:1.sql
+            ||      ||        ||
+	       -u用户名 -p密码 数据库名>目标位置
