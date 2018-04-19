@@ -1,34 +1,38 @@
 1.NoClassDefFound javax/xml/bind/JAXBException处理方式：
-      故障原因：
-            JAXB API是java EE 的API，因此在java SE 9.0 中不再包含这个 Jar 包。 
-            java 9 中引入了模块的概念，默认情况下，Java SE中将不再包含java EE 的Jar包 
-            而在 java 6/7 / 8 时关于这个API 都是捆绑在一起的
+                                                            故障原因：
+                                                                  JAXB API是java EE 的API，因此在java SE 9.0 中不再包含这个 Jar 包。 
+                                                                  java 9 中引入了模块的概念，默认情况下，Java SE中将不再包含java EE 的Jar包 
+                                                                  而在 java 6/7 / 8 时关于这个API 都是捆绑在一起的
 
-      解决方案一：
-      降低JDK 9 版本到 JDK 6/7/8
+                                                            解决方案一：
+                                                            降低JDK 9 版本到 JDK 6/7/8
 
-      解决方案二:（亲测可行）
+                                                            解决方案二:（亲测可行）
 
-      手动加入这些依赖Jar包
+                                                            手动加入这些依赖Jar包
 
-      要解决这个问题，我导入了下面这四个Jar包修复成功。
+                                                            要解决这个问题，我导入了下面这四个Jar包修复成功。
 
-      javax.activation-1.2.0.jar 
-      http://search.maven.org/remotecontent?filepath=com/sun/activation/javax.activation/1.2.0/javax.activation-1.2.0.jar
+                                                            javax.activation-1.2.0.jar 
+                                                            http://search.maven.org/remotecontent?filepath=com/sun/activation/javax.activation/1.2.0/javax.activation-1.2.0.jar
 
-      jaxb-api-2.3.0.jar 
-      http://search.maven.org/remotecontent?filepath=javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0.jar
+                                                            jaxb-api-2.3.0.jar 
+                                                            http://search.maven.org/remotecontent?filepath=javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0.jar
 
-      jaxb-core-2.3.0.jar 
-      http://search.maven.org/remotecontent?filepath=com/sun/xml/bind/jaxb-core/2.3.0/jaxb-core-2.3.0.jar
+                                                            jaxb-core-2.3.0.jar 
+                                                            http://search.maven.org/remotecontent?filepath=com/sun/xml/bind/jaxb-core/2.3.0/jaxb-core-2.3.0.jar
 
-      jaxb-impl-2.3.0.jar 
-      http://search.maven.org/remotecontent?filepath=com/sun/xml/bind/jaxb-impl/2.3.0/jaxb-impl-2.3.0.jar
+                                                            jaxb-impl-2.3.0.jar 
+                                                            http://search.maven.org/remotecontent?filepath=com/sun/xml/bind/jaxb-impl/2.3.0/jaxb-impl-2.3.0.jar
 
-      下载上面这些文件和复制他们到libs文件夹下， 
-      添加他们导入到Build Path中 
-      重新运行即可
-      
-      
-      原文地址：https://stackoverflow.com/questions/43574426/how-to-resolve-java-lang-noclassdeffounderror-javax-xml-bind-jaxbexception-in-j
-      翻译：https://blog.csdn.net/hadues/article/details/79188793
+                                                            下载上面这些文件和复制他们到libs文件夹下， 
+                                                            添加他们导入到Build Path中 
+                                                            重新运行即可
+
+
+                                                            原文地址：https://stackoverflow.com/questions/43574426/how-to-resolve-java-lang-noclassdeffounderror-javax-xml-bind-jaxbexception-in-j
+                                                            翻译：https://blog.csdn.net/hadues/article/details/79188793
+
+2.关于将JavaBean的bean属性设置为包装类的意义：                 首先，包装类如Integer如果不赋值，默认是null，但如果是基本类型的全局变量Int（如类字段就是全局的，可以不用初始化。方法中变量是局部的，必须要初始化）,
+                                                            不赋值的话，默认值是0；对于一些没有赋值的数据，我们希望持久化到数据库时是Null。因此，使用包装类是很重要的。     
+                                                            其次，包装类可以使用一些方法。
