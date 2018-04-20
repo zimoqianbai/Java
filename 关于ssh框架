@@ -43,5 +43,17 @@
                                                             然后在映射文件XXX.hbm.xml中添加<version name="version">即可
                                                             hibernate会在更新提交时比对version前后是否一致再决定是否执行更新
                                                             
-4.
-
+4.关于hibernate级联保存：                                    如果在customer端设置级联cascade="save-update"，save-update：（如果数据库中有更新，没有就保存）
+                                                            只要操作customer添加联系人，保存customer就可以级联保存联系人
+                                                            
+                                                            如果在linkman端设置级联cascade="save-update"
+                                                            只要操作linkman.setCustomer(customer)，再保存session.save(linkman)就可以级联保存customer 
+                                                            如果session.save多条Linkman,也只有第一次会保存customer,之后的都是更新customer语句（save-update）
+          
+                                                            如果两端都配置了级联保存
+                                                            就看session.save的时候保存的对象是否有关联，只要有关联的都可以保存进数据库。
+                                                            如linkman1.setCustomer(customer1),
+                                                            customer1.getLinkmans().add(linkman2)
+                                                            session.save(linkman1);//customer表中一条数据customer1且linkman表中两条数据linkman1和2
+                                                            
+5.
