@@ -56,4 +56,20 @@
                                                             customer1.getLinkmans().add(linkman2)
                                                             session.save(linkman1);//customer表中一条数据customer1且linkman表中两条数据linkman1和2
                                                             
-5.
+5.使用structs2框架时碰到了两个错误：                          java.nio.file.InvalidPathException: Illegal char <:> at index 3: jar:file:\C:\Program%20Files\Java\apache-tomcat-9.0.5\webapps\day32\WEB-INF\lib\struts2-core-2.3.24.jar
+                                                            这个是版本问题，我使用的是tomcat9和jdk9,必须要最新的struts-2.5.16
+然后又遇到一个新的错误，直接404访问不到项目下的任何目录：        这个是新版本的问题，试一试下面几个配置：
+                                                             1、 <!DOCTYPE struts PUBLIC  
+                                                                "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+                                                                "http://struts.apache.org/dtds/struts-2.3.dtd">   <!--2.5版本的要改为2.5--></span>  
+                                                            2、 <!-- 开启动态方法调用，升级strust2 2.3.32时需要配置这个 -->  
+                                                                <constant name="struts.enable.DynamicMethodInvocation" value="true"/></span>  
+                                                            3、配置2.5版本需要JDK1.7，还需要注意web.xml配置
+                                                                     <!-- 2.5版本的filter配置 -->  
+                                                                    <filter-name>struts2</filter-name>  
+                                                                    <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class></span>  
+                                                            4、2.5版本的404报错问题，需要在struts.xml配置
+                                                            <!--   配置2.5版本，struts.xml需要配置，需要放在package里面并且在第一个action配置的前面 -->  
+                                                                 <global-allowed-methods>regex:.*</global-allowed-methods></span>  
+
+
