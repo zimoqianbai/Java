@@ -47,7 +47,8 @@
                                                             只要操作customer添加联系人，保存customer就可以级联保存联系人
                                                             
                                                             如果在linkman端设置级联cascade="save-update"
-                                                            只要操作linkman.setCustomer(customer)，再保存session.save(linkman)就可以级联保存customer 
+                                                            只要操作linkman.setCustomer(customer)，再保存session.s
+                                                              ave(linkman)就可以级联保存customer 
                                                             如果session.save多条Linkman,也只有第一次会保存customer,之后的都是更新customer语句（save-update）
           
                                                             如果两端都配置了级联保存
@@ -58,6 +59,7 @@
                                                             
 5.使用structs2框架时碰到了两个错误：                          java.nio.file.InvalidPathException: Illegal char <:> at index 3: jar:file:\C:\Program%20Files\Java\apache-tomcat-9.0.5\webapps\day32\WEB-INF\lib\struts2-core-2.3.24.jar
                                                             这个是版本问题，我使用的是tomcat9和jdk9,必须要最新的struts-2.5.16
+                                                            
 然后又遇到一个新的错误，直接404访问不到项目下的任何目录：        这个是新版本的问题，试一试下面几个配置：
                                                              1、 <!DOCTYPE struts PUBLIC  
                                                                 "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
@@ -71,5 +73,12 @@
                                                             4、2.5版本的404报错问题，需要在struts.xml配置
                                                             <!--   配置2.5版本，struts.xml需要配置，需要放在package里面并且在第一个action配置的前面 -->  
                                                                  <global-allowed-methods>regex:.*</global-allowed-methods></span>  
+
+然后，又一个错误。。。。                                      Wrong method was defined as an action method: index 
+                                                            还是新版本的问题，真的是一步错步步错，绝对不能用新版本！
+                                                            解决方法：删除struts2-rest-plugin-xxx.jar
+
+javaweb ssh struts 2.5相比于之前版本配置区别及问题研究         http://baijiahao.baidu.com/s?id=1592375342435086836&wfr=spider&for=pc
+
 
 
