@@ -259,5 +259,10 @@
 						}//输出：a=new String();a.isEmpty()为true
 							 b=""; b.isEmpty()为true"
 
-30.
-
+30.复制web项目的时候部署在服务器上的名字没有改变：   1.右键点击项目--》Properties--》Web Project Settings--》修改Context root的值为新的项目名；
+						 2.项目目录--》.project文件--》打开后修改<name> test</name>中的值为新的项目名
+						 3.项目目录下--》.settings文件夹--》org.eclipse.wst.common.component文件，修改<wb-module deploy-name=" test">，将test修改成新的项目名
+						 检查<property name="context-root" value="test"/>中的value值是否为新的项目名
+						
+31.			
+			
