@@ -74,11 +74,19 @@
                                                             <!--   配置2.5版本，struts.xml需要配置，需要放在package里面并且在第一个action配置的前面 -->  
                                                                  <global-allowed-methods>regex:.*</global-allowed-methods></span>  
 
-然后，又一个错误。。。。                                      Wrong method was defined as an action method: index 
+                                                            然后，又一个错误。。。。                                      Wrong method was defined as an action method: index 
+                                                            
                                                             还是新版本的问题，真的是一步错步步错，绝对不能用新版本！
                                                             解决方法：删除struts2-rest-plugin-xxx.jar
 
-javaweb ssh struts 2.5相比于之前版本配置区别及问题研究         http://baijiahao.baidu.com/s?id=1592375342435086836&wfr=spider&for=pc
+                                                            javaweb ssh struts 2.5相比于之前版本配置区别及问题研究         http://baijiahao.baidu.com/s?id=1592375342435086836&wfr=spider&for=pc
 
+6.ERROR org.apache.struts2.convention.DefaultClassFinder    在加载的时候一直报错，虽然不影响使用，但是很难看，根据提示是struts2-convention.plug导致了不兼容问题，所以删除该插件，我的项目暂时用不到这个jar包
 
+7.Write operations are not allowed in read-only 
+mode (FlushMode.MANUAL): Turn your Session into FlushMode.
+COMMIT/AUTO or remove 'readOnly' 
+marker from transaction definition.                         该异常说白了就是整合框架时要开启事务处理，在applicationContext中开启了事务处理之后，忘记在service中添加@Transctional注解。。。
+
+8.
 
