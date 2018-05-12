@@ -88,5 +88,9 @@ mode (FlushMode.MANUAL): Turn your Session into FlushMode.
 COMMIT/AUTO or remove 'readOnly' 
 marker from transaction definition.                         该异常说白了就是整合框架时要开启事务处理，在applicationContext中开启了事务处理之后，忘记在service中添加@Transctional注解。。。
 
-8.
-
+8.ajax与struts传值：                                         将web端的值封装成json对象（不是json格式的字符串）,然后再action中使用属性驱动的方式封装到对象中。
+                                                            属性驱动有两种方式，一种在页面只用OGNL表达式，然后action中private Object obj;{get;set;}
+                                                            另一种提供全局变量和set方法，web端保持名称一致
+                                                            
+9.
+                        
