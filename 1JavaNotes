@@ -268,5 +268,10 @@
 						 3.项目目录下--》.settings文件夹--》org.eclipse.wst.common.component文件，修改<wb-module deploy-name=" test">，将test修改成新的项目名
 						 检查<property name="context-root" value="test"/>中的value值是否为新的项目名
 						
-31.			
-			
+31.在html中拼接字符串：				  var test='<a href="javascript:void(0);" onclick=del("'+row.uuid+'")>删除</a>'
+						 最外层是单引号，就要以单引号结尾，双引号亦然；所以上面被单引号包裹的【<a href="javascript:void(0);" onclick=del("】是一部分，
+						 【")>删除</a>】又是另外一部份，那么row.uuid就是拼接部分
+						 如果最外层使用的单、双引号，在内部再遇到相同的引号必须加上\进行转义
+						
+32.
+
