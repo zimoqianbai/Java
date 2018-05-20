@@ -1,0 +1,1 @@
+使用serializeJSON,前端控制台出现了serlializeJSON not a function的错误，原因很奇妙，是由于引入了两次JQuery
