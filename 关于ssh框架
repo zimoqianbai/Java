@@ -92,5 +92,25 @@ marker from transaction definition.                         该异常说白了�
                                                             属性驱动有两种方式，一种在页面只用OGNL表达式，然后action中private Object obj;{get;set;}
                                                             另一种提供全局变量和set方法，web端保持名称一致
                                                             
-9.
+9.Unable to execute schema management to JDBC target 
+[alter table menu add constraint FK7jp8m7pc699tlvqkdfocrmnav 
+foreign key (supid) references menu (menuid)]               配置文件中设置了one-to-many后，hibernate hbm2ddl.auto 默认自动创建外键
+                                                            menu表自关联，必须设置集合：
+                                                                                       <bag name="menus" order-by="menuid" >
+                                                                                          <key column="supid" ></key>
+                                                                                          <one-to-many class="net.herman.erp.entity.Menu" />
+                                                                                        </bag>
+                                                            如果这样设置，会自动将supid关联menuid，然后添加外键supid引用自己表的主键menuid.有了这个外键约束，supid就不能插入menuid没有的值。
+                                                            但是根节点的supid必须设置为menuid没有的值，如-1，这样在自关联时才不会循环调用导致栈溢出。因此必须设置foreign-key=“none”
+                                                            <bag name="menus" order-by="menuid" inverse="true" >
+                                                              <key column="supid"  foreign-key="none"></key>
+                                                              <one-to-many class="net.herman.erp.entity.Menu" />
+                                                            </bag>//其中inverse不知道是不是必要的
+                                                            
+10.
+
+
+
+
+                                                            
                         
