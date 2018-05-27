@@ -1,0 +1,12 @@
+1.serializeJSON                                             使用serializeJSON,前端控制台出现了serlializeJSON not a function的错误，原因很奇妙，是由于引入了两次JQuery
+
+2.判断json对象是否有某个属性                                  var formdata={"orders.supplierUuid":"fdfs6846fds4","json":"[{"num":"10","money":18.1,"goodsUuid":"000086","goodsName":"雪饼","price":"1.81"}]"
+                                                                          }
+                                                            1.if(formdata.hasOwnProperty("orders.supplierUuid")){
+                                                                console.log("yes");
+                                                            }//yes
+                                                            if(formdata.hasOwnProperty("json")){
+                                                                console.log("yes");
+                                                            }//yes
+                                                            2.console.log('orders.supplierUuid' in formdata);//yes
+                                                              console.log('json' in formdata);//yes
