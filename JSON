@@ -10,3 +10,8 @@
                                                             }//yes
                                                             2.console.log('orders.supplierUuid' in formdata);//yes
                                                               console.log('json' in formdata);//yes
+                                                              
+3.判断json对象的某个属性值是否为空                            1.if(formdata['orders.supplierUuid']===""){
+                                                                console.log("yes");
+                                                            }//yes
+                                                      
